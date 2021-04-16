@@ -14,3 +14,5 @@ C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug
 C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.exe
 C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.pdb
 C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.Views.New.resources
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\Newtonsoft.Json.dll
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\Newtonsoft.Json.xml

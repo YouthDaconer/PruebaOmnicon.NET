@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,9 +32,9 @@ namespace PruebaOmnicon
          * Desc: Refresca el listado de productos en la tabla
          * 
          */
-        private void Refresh()
+        private void Refresh(string productName = null, int? quantity = null, DateTime? modifiedDate = null)
         {
-            dgProducts.DataSource = productController.GetList();
+            dgProducts.DataSource = productController.GetList(productName, quantity, modifiedDate);
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -66,11 +67,18 @@ namespace PruebaOmnicon
 
             if (productId != null)
             {
-                // Elimina el producto
-                productController.Remove(productId);
+                var confirmResult = MessageBox.Show("¿Está seguro que desea eliminar el producto?",
+                    "Confirmar",
+                    MessageBoxButtons.YesNo);
 
-                // Refresca la tabla
-                Refresh();
+                if (confirmResult == DialogResult.Yes)
+                {
+                    // Elimina el producto
+                    productController.Remove(productId);
+
+                    // Refresca la tabla
+                    Refresh();
+                }
             }
         }
 
@@ -93,5 +101,49 @@ namespace PruebaOmnicon
             }
         }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string productName = null;
+            int? quantity = null;
+            DateTime? modifiedDate = null;
+
+            if (!txtProductName.Text.Trim().Equals(""))
+            {
+                productName = txtProductName.Text;
+            }
+
+            if (!txtQuantity.Text.Trim().Equals(""))
+            {
+                quantity = int.Parse(txtQuantity.Text);
+            }
+
+            if (chkSearchDate.Checked)
+            {
+                modifiedDate = dpModifiedDate.Value;
+            }
+
+            Refresh(productName, quantity, modifiedDate);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Refresh();
+            txtProductName.Text = "";
+            txtQuantity.Text = "";
+            dpModifiedDate.Enabled = false;
+            chkSearchDate.Checked = false;
+        }
+
+        private void chkSearchDate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkSearchDate.Checked)
+            {
+                dpModifiedDate.Enabled = true;
+            }
+            else
+            {
+                dpModifiedDate.Enabled = false;
+            }
+        }
     }
 }

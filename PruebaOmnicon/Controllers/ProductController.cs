@@ -1,6 +1,9 @@
-﻿using PruebaOmnicon.Models;
+﻿using Newtonsoft.Json.Linq;
+using PruebaOmnicon.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +20,30 @@ namespace PruebaOmnicon.Controllers
          * Desc: Obtiene todos los productos
          * 
          */
-        public IEnumerable<Models.PRODUCT> GetList()
+        public IEnumerable<Models.PRODUCT> GetList(string productName = null, int? quantity = null, DateTime? modifiedDate = null)
         {
-            using (DBEntities db = new DBEntities())
+            using (DBEntities dbEntities = new DBEntities())
             {
-                return (from d in db.PRODUCT
-                        select d).ToList();
+                var query = from p in dbEntities.PRODUCT
+                            select p;
+
+                if (productName != null)
+                {
+                    query = query.Where(p => DbFunctions.Like(p.PRODUCT_NAME, "%" + productName + "%"));
+                }
+
+                if (quantity != null)
+                {
+                    query = query.Where(p => p.QUANTITY == quantity);
+                }
+
+                if (modifiedDate != null)
+                {
+                    DateTime dateParam = (DateTime)modifiedDate;
+                    query = query.Where(p => EntityFunctions.TruncateTime(p.MODIFIED_DATE) == dateParam.Date);
+                }
+
+                return query.ToList();
             }
         }
 

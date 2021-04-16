@@ -16,7 +16,7 @@ namespace PruebaOmnicon.Models
     {
         public int ID { get; set; }
         public string PRODUCT_NAME { get; set; }
-        public Nullable<decimal> QUANTITY { get; set; }
-        public Nullable<System.DateTime> MODIFIED_DATE { get; set; }
+        public decimal QUANTITY { get; set; }
+        public System.DateTime MODIFIED_DATE { get; set; }
     }
 }
