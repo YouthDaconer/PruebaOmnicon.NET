@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PruebaOmnicon.Models;
 
 namespace PruebaOmnicon
 {
     public partial class Main : Form
     {
+        Controllers.ProductController productController = new Controllers.ProductController();
+
         public Main()
         {
             InitializeComponent();
@@ -32,12 +33,7 @@ namespace PruebaOmnicon
          */
         private void Refresh()
         {
-            using (DBEntities db = new DBEntities())
-            {
-                var lstProducts = from d in db.PRODUCT
-                                  select d;
-                dgProducts.DataSource = lstProducts.ToList();
-            }
+            dgProducts.DataSource = productController.GetList();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -70,19 +66,21 @@ namespace PruebaOmnicon
 
             if (productId != null)
             {
-                using (DBEntities dbEntities = new DBEntities())
-                {
-                    PRODUCT objProduct = dbEntities.PRODUCT.Find(productId);
-                    dbEntities.PRODUCT.Remove(objProduct);
-
-                    dbEntities.SaveChanges();
-                }
+                // Elimina el producto
+                productController.Remove(productId);
 
                 // Refresca la tabla
                 Refresh();
             }
         }
 
+        /**
+         * GetId
+         * 
+         * Creado por: Carlos Caicedo
+         * Desc: Obtiene el id del producto seleccionado en la lista
+         * 
+         */
         private int? GetId()
         {
             try

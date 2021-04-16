@@ -15,6 +15,7 @@ namespace PruebaOmnicon.Views
     {
         public int? productId;
         public PRODUCT objProduct = null;
+        Controllers.ProductController productController = new Controllers.ProductController();
 
         public New(int? productId = null)
         {
@@ -39,10 +40,10 @@ namespace PruebaOmnicon.Views
          */
         private void LoadData()
         {
-            using (DBEntities dbEntities = new DBEntities())
-            {
-                objProduct = dbEntities.PRODUCT.Find(productId);
+            objProduct = productController.GetProduct(productId);
 
+            if (objProduct != null)
+            {
                 txtName.Text = objProduct.PRODUCT_NAME.ToString();
                 txtQuantity.Text = objProduct.QUANTITY.ToString();
                 dtModifiedDate.Value = (DateTime)objProduct.MODIFIED_DATE;
@@ -51,28 +52,25 @@ namespace PruebaOmnicon.Views
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            using (DBEntities dbEntities = new DBEntities())
+            if (productId != null)
             {
-                if (productId == null)
-                    objProduct = new PRODUCT();
-
-                objProduct.PRODUCT_NAME = txtName.Text;
-                objProduct.QUANTITY = int.Parse(txtQuantity.Text);
-                objProduct.MODIFIED_DATE = dtModifiedDate.Value;
-
-                if (productId != null)
-                {
-                    dbEntities.Entry(objProduct).State = System.Data.Entity.EntityState.Modified;
-                }
-                else
-                {
-                    dbEntities.PRODUCT.Add(objProduct);
-                }
-
-                dbEntities.SaveChanges();
-
-                this.Close();
+                productController.Edit(
+                    productId,
+                    txtName.Text,
+                    int.Parse(txtQuantity.Text),
+                    dtModifiedDate.Value
+                    );
             }
+            else
+            {
+                productController.New(
+                    txtName.Text,
+                    int.Parse(txtQuantity.Text),
+                    dtModifiedDate.Value
+                    );
+            }
+
+            this.Close();
         }
 
     }
