@@ -1,0 +1,16 @@
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\PruebaOmnicon.exe.config
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\PruebaOmnicon.exe
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\PruebaOmnicon.pdb
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\EntityFramework.dll
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\EntityFramework.xml
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.csprojAssemblyReference.cache
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.Main.resources
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.Properties.Resources.resources
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.csproj.GenerateResource.cache
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.csproj.CoreCompileInputs.cache
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.csproj.CopyComplete
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.exe
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.pdb
+C:\Users\CarlosAndrésCaicedo\source\repos\PruebaOmnicon\PruebaOmnicon\obj\Debug\PruebaOmnicon.Views.New.resources
